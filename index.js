@@ -12,8 +12,3 @@ if(cmd === 'list'){
         });
     }
 }
-
-if(!cmd) {
-    console.log('TaskMaster CLI - usa: node index.js <comando>');
-}
-
