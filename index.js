@@ -1,4 +1,4 @@
-const { readTasks } = require('./data/tasks');
+const { readTasks, writeTasks } = require('./data/tasks');
 const [,, cmd] = process.argv;
 const title = process.argv.slice(3).join(' ');
 
@@ -13,7 +13,7 @@ if(cmd === 'list'){
     }else {
         tasks.forEach((t, i) =>{
             const icon = t.done? 'n' : 'y';
-            console.log(`\${icon} [\${i+1}] \${t.title}`)
+            console.log(`${icon} [${i+1}] ${t.title}`)
         });
     }
 }
@@ -27,5 +27,5 @@ if(cmd === 'add'){
     const tasks = readTasks();
     tasks.push({ id: Date.now(), title, done: false});
     writeTasks(tasks);
-    console.log(`Tarea "\${title}" agregada`);
+    console.log(`Tarea "${title}" agregada`);
 }
